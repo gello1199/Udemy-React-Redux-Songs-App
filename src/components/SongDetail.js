@@ -1,7 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-const SongDetail = () => {
+const SongDetail = (props) => {
+    console.log(props)
     return (
         <div>
             Song Detail
@@ -9,4 +10,8 @@ const SongDetail = () => {
     );
 }
 
-export default SongDetail;
+const mapStateToProps = state => {
+   return { song: state.selectedSong } 
+}
+
+export default connect(mapStateToProps)(SongDetail);
